@@ -1,7 +1,5 @@
-import json
 import pandas as pd
 import numpy as np
-import string
 import random
 import matplotlib.pyplot as plt
 from functions.getData import distancia_curso
@@ -15,7 +13,6 @@ distancia_cursos_df = pd.read_csv('./data/distancia_cursos.csv', encoding='utf8'
 
 salas = salas_df.set_index('ID SALA').T.to_dict()
 cursos = cursos_df.set_index('ID CURSO').T.to_dict()
-cubo = json.load(open('./data_structure/cubo.json'))
 secciones = secciones_df.set_index('ID SECCION').T.to_dict()
 
 def separa_info_genetica(informacion):
@@ -132,7 +129,7 @@ if __name__ == "__main__":
     probabilidad_mutacion = 0.025
     porcentaje_crossover = 0.8
     porcentaje_mutacion = 0.2
-    generaciones = 1000
+    generaciones = 200
 
     poblacion = [generar_cromosoma() for _ in range(poblacion_total)]
     top_generaciones = []
